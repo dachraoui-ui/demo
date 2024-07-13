@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    username: ahmed
+    password: ahmed
+    url: jdbc:mysql://localhost:3306/sport
+server:
+  port: 8090
