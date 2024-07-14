@@ -3,5 +3,11 @@ spring:
     username: ahmed
     password: ahmed
     url: jdbc:mysql://localhost:3306/sport
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+        ddl-auto: update
 server:
   port: 8090
