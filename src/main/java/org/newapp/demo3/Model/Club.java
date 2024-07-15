@@ -19,6 +19,7 @@ public class Club {
     private String name;
     private String location;
     private String stadium;
+    @Column(name = "coach") // change the name from model to database
     private String coach;
     private String league;
     private String country;
