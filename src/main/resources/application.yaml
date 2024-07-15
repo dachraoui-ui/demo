@@ -2,12 +2,9 @@ spring:
   datasource:
     username: ahmed
     password: ahmed
-    url: jdbc:mysql://localhost:3306/sport
+    url: jdbc:mysql://localhost:3306/sport?useSSL=false&serverTimezone=UTC
   jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
     hibernate:
-        ddl-auto: update
+      ddl-auto: update
 server:
   port: 8090
