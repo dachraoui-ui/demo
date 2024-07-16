@@ -23,5 +23,6 @@ public class ClubDTO {
                 .country(club.getCountry())
                 .league(club.getLeague())
                 .stadium(club.getStadium()).build();
+        return clubDTO;
     }
 }
