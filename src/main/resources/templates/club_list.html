@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -147,7 +147,15 @@
                             </tr>
                             </tfoot>
                             <tbody>
-
+                                <tr th:each="club : ${clubs}">
+                                    <td th:id="${club.id}"></td>
+                                    <td th:text="${club.name}"></td>
+                                    <td th:text="${club.location}"></td>
+                                    <td th:text="${club.stadium}"></td>
+                                    <td th:text="${club.coach}"></td>
+                                    <td th:text="${club.league}"></td>
+                                    <td th:text="${club.country}"></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
