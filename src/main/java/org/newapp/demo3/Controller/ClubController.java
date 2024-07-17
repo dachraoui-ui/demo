@@ -20,11 +20,6 @@ public class ClubController {
     @GetMapping("/club")
     public String showAllClubs(Model model){
         List<Club> clubs = clubService.findAllClubs();
-        if (clubs == null || clubs.isEmpty()) {
-            System.out.println("No clubs found");
-        } else {
-            clubs.forEach(club -> System.out.println("Found club: " + club.getId() + " - " + club.getName()));
-        }
         model.addAttribute("clubs", clubs);
         return "club_list";
     }

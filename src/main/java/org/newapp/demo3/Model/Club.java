@@ -8,13 +8,13 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Table(name = "club")
 public class Club {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String location;
@@ -23,5 +23,6 @@ public class Club {
     private String coach;
     private String league;
     private String country;
+
 
 }
