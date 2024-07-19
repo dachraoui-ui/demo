@@ -143,11 +143,10 @@
                                 <th>Coach</th>
                                 <th>League</th>
                                 <th>Country</th>
-
                             </tr>
                             </tfoot>
                             <tbody>
-                                <tr th:each="club : ${clubs}">
+                                <tr th:each="club : ${clubs}" >
                                     <td th:id="${club.id}"></td>
                                     <td th:text="${club.name}"></td>
                                     <td th:text="${club.location}"></td>

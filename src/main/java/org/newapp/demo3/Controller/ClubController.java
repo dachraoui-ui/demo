@@ -5,9 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-
+@RequestMapping("/admin")
 @Controller
 public class ClubController {
     private final ClubService clubService;
@@ -23,4 +24,11 @@ public class ClubController {
         model.addAttribute("clubs", clubs);
         return "club_list";
     }
+    @GetMapping("/club/add")
+    public String addClub(Model model){
+        Club club = new Club();
+        model.addAttribute("club",club);
+        return "add_Club";
+    }
+
 }
