@@ -8,4 +8,5 @@ import java.util.List;
 @Service
 public interface ClubService{
     List<Club> findAllClubs();
+    Club Save(Club club);
 }

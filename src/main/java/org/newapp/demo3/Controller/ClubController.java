@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-@RequestMapping("/admin")
 @Controller
 public class ClubController {
     private final ClubService clubService;
@@ -29,6 +29,11 @@ public class ClubController {
         Club club = new Club();
         model.addAttribute("club",club);
         return "add_Club";
+    }
+    @PostMapping("/club/add")
+    public String SaveClub(@ModelAttribute("club") Club club){
+        clubService.Save(club);
+        return "redirect:/club";
     }
 
 }

@@ -17,4 +17,8 @@ public class ClubServiceImpl implements ClubService{
     public List<Club> findAllClubs() {
         return clubRepo.findAll();
     }
+    @Override
+    public Club Save(Club club){
+        return clubRepo.save(club);
+    }
 }
