@@ -45,5 +45,11 @@ public class ClubController {
         model.addAttribute("club",club);
         return "club_edit";
     }
+    @PostMapping("/club/{ClubId}/edit")
+    public String EditClub(@PathVariable int ClubId , @ModelAttribute ClubDTO club){
+        club.setId(ClubId);
+        clubService.Update(club);
+        return "redirect:/club";
+    }
 
 }

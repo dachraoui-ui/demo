@@ -1,6 +1,7 @@
 package org.newapp.demo3.Model;
 
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class Club {
     private String coach;
     private String league;
     private String country;
+
 
 
 }
