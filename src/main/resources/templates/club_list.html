@@ -67,7 +67,7 @@
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                Authentication
+                                Actions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
@@ -75,6 +75,8 @@
                                     <a class="nav-link" href="../../../../../../../Downloads/startbootstrap-sb-admin-gh-pages/startbootstrap-sb-admin-gh-pages/login.html">Login</a>
                                     <a class="nav-link" href="../../../../../../../Downloads/startbootstrap-sb-admin-gh-pages/startbootstrap-sb-admin-gh-pages/register.html">Register</a>
                                     <a class="nav-link" href="../../../../../../../Downloads/startbootstrap-sb-admin-gh-pages/startbootstrap-sb-admin-gh-pages/password.html">Forgot Password</a>
+                                    <a class="nav-link" th:href="@{/club/add}">add Club</a>
+
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -131,7 +133,7 @@
                                 <th>Coach</th>
                                 <th>League</th>
                                 <th>Country</th>
-
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -143,6 +145,7 @@
                                 <th>Coach</th>
                                 <th>League</th>
                                 <th>Country</th>
+                                <th>Action</th>
                             </tr>
                             </tfoot>
                             <tbody>
@@ -154,6 +157,7 @@
                                     <td th:text="${club.coach}"></td>
                                     <td th:text="${club.league}"></td>
                                     <td th:text="${club.country}"></td>
+                                    <td th:href="@{/club/delete}">delete</td>
                                 </tr>
                             </tbody>
                         </table>
