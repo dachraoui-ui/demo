@@ -125,7 +125,7 @@
                         .
                     </div>
                 </div>
-                <div class="card mb-4">
+                <div class="card mb-6">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
                         DataTable Example
@@ -165,6 +165,7 @@
                                     <td th:text="${club.coach}"></td>
                                     <td th:text="${club.league}"></td>
                                     <td th:text="${club.country}"></td>
+                                    <td><a class="btn btn-primary" th:href="@{/club/{ClubId}/edit(ClubId=${club.id})}">edit</a></td>
                                     <td th:href="@{/club/delete}"><a>delete</a></td>
                                 </tr>
                             </tbody>
