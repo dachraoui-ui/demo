@@ -25,7 +25,7 @@ public class ClubController {
 
     @GetMapping("/club")
     public String showAllClubs(Model model){
-        List<Club> clubs = clubService.findAllClubs();
+        List<ClubDTO> clubs = clubService.findAllClubs();
         model.addAttribute("clubs", clubs);
         return "club_list";
     }
@@ -36,7 +36,11 @@ public class ClubController {
         return "add_Club";
     }
     @PostMapping("/club/add")
-    public String SaveClub(@ModelAttribute("club") Club club){
+    public String SaveClub(@Valid @ModelAttribute("club") Club club ,BindingResult bindingResult,Model model){
+        if (bindingResult.hasErrors()){
+            model.addAttribute("club",club);
+            return "add_Club";
+        }
         clubService.Save(club);
         return "redirect:/club";
     }
@@ -54,6 +58,12 @@ public class ClubController {
         club.setId(ClubId);
         clubService.Update(club);
         return "redirect:/club";
+    }
+    @GetMapping("/club/{ClubId}")
+    public String getDetails(@PathVariable int ClubId, Model model){
+        ClubDTO clubDTO = clubService.findById(ClubId);
+        model.addAttribute("club",clubDTO);
+        return "club_details";
     }
 
 }

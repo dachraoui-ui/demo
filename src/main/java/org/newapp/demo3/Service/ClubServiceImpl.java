@@ -7,6 +7,7 @@ import org.newapp.demo3.Model.Club;
 import org.newapp.demo3.Repository.ClubRepo;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -16,12 +17,13 @@ public class ClubServiceImpl implements ClubService{
 
     private ClubRepo clubRepo;
     @Override
-    public List<Club> findAllClubs() {
-        return clubRepo.findAll();
+    public List<ClubDTO> findAllClubs() {
+        List<Club> clubs = clubRepo.findAll();
+        return clubs.stream().map(this::ClubToDTO).collect(Collectors.toList());
     }
     @Override
-    public void Save(Club club){
-        clubRepo.save(club);
+    public Club Save(Club club){
+        return clubRepo.save(club);
     }
     @Override
     public ClubDTO findById(int id){

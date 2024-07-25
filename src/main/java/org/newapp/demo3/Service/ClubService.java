@@ -9,8 +9,8 @@ import java.util.List;
 
 @Service
 public interface ClubService{
-    List<Club> findAllClubs();
-    void Save(Club club);
+    List<ClubDTO> findAllClubs();
+    Club Save(Club club);
     ClubDTO findById(int id);
     void Update(ClubDTO club);
 }
