@@ -58,4 +58,7 @@ public class ClubServiceImpl implements ClubService{
         return clubDTO;
 
     }
+    public void delete(int ClubId){
+        clubRepo.deleteById(ClubId);
+    }
 }
