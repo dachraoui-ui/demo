@@ -70,5 +70,5 @@ public class ClubController {
         clubService.delete(ClubId);
         return "redirect:/club";
     }
-
+    // adding search bar
 }
