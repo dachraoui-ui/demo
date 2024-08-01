@@ -139,6 +139,14 @@
                     </div>
                 </div>
                 <div class="card mb-6">
+                    <div class="input-group mb-3">
+                        <form th:action="@{/club/search}" class="d-flex w-100">
+                            <label>
+                                <input name="query" type="search" class="form-control" placeholder="Search for clubs...">
+                            </label>
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </form>
+                    </div>
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
                         DataTable Example
@@ -178,7 +186,7 @@
                                     <td th:text="${club.coach}"></td>
                                     <td th:text="${club.league}"></td>
                                     <td th:text="${club.country}"></td>
-                                    <td><a class="btn btn-primary" style="background-color: yellow" th:href="@{/club/{ClubId}/edit(ClubId=${club.id})}">edit</a></td>
+                                    <td><a class="btn btn-primary" style="background-color:yellowgreen" th:href="@{/club/{ClubId}/edit(ClubId=${club.id})}">edit</a></td>
                                     <td><a class="btn btn-primary" th:href="@{/club/{ClubId}(ClubId=${club.id})}">details</a></td>
                                     <td ><a class="btn btn-primary" th:href="@{/club/{ClubId}/delete(ClubId=${club.id})}" style="background-color: red">delete</a></td>
                                 </tr>

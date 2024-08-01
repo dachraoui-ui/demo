@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -70,5 +67,10 @@ public class ClubController {
         clubService.delete(ClubId);
         return "redirect:/club";
     }
-    // adding search bar
+    @GetMapping("/club/search")
+    public String SearchClub(@RequestParam(value = "query") String query,Model model){
+        List<ClubDTO> clubs = clubService.searchByName(query);
+        model.addAttribute("clubs",clubs);
+        return "club_list";
+    }
 }

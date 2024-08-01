@@ -9,7 +9,7 @@ import java.util.Optional;
 
 
 public interface ClubRepo extends JpaRepository<Club, Integer> {
-    @Query("select c from Club where c.name like concat('%',:query,'%')");
     Optional<Club> findByName(String name);
+    @Query("select c from Club c where c.name like concat('%',:query,'%')")
     List<Club> searchByName(String query);
 }
