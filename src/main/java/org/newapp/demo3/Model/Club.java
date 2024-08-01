@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -24,6 +27,6 @@ public class Club {
     private String league;
     private String country;
 
-
-
+    @OneToMany(mappedBy = "club" ,cascade = CascadeType.REMOVE)
+    Set<Player> players = new HashSet<>();
 }
