@@ -17,7 +17,7 @@
 <body class="sb-nav-fixed">
 <div th:replace="~{fragments/fragment :: header}"></div>
 <div th:replace="~{fragments/fragment :: SideNav}"></div>
-<form role="form" method="post" th:action="@{/player/{clubId}/add}" th:object="${player}">
+<form role="form" method="post" th:action="@{/player/{clubId}/add(clubId=${clubId})}" th:object="${player}">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="name">Name</label>
@@ -31,40 +31,19 @@
             <p th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></p>
         </div>
         <div class="form-group col-md-6">
-            <label for="location">Location</label>
+            <label for="age">age</label>
             <input type="text" class="form-control"
-                   name="location"
-                   id="location"
-                   th:field="*{location}" placeholder="location">
+                   name="age"
+                   id="age"
+                   th:field="*{age}"
+                   placeholder="age">
         </div>
-    </div>
-    <div class="form-group">
-        <label for="stadium">Stadium</label>
-        <input type="text" class="form-control" id="stadium"
-               name="stadium"
-               th:field="*{stadium}" placeholder="Camp Nou">
-    </div>
-    <div class="form-group">
-        <label for="coach">Coach</label>
-        <input type="text" class="form-control"
-               id="coach"
-               name="coach"
-               th:field="*{coach}" placeholder="Coach">
-    </div>
-
-    <div class="form-group">
-        <label for="league">League</label>
-        <input type="text" class="form-control" placeholder="League" id="league"
-               name="league"
-               th:field="*{league}">
-        <p th:if="${#fields.hasErrors('league')}" class="text-danger" th:errors="*{league}"></p>
     </div>
     <div class="form-group">
         <label for="country">Country</label>
         <input type="text" class="form-control" id="country"
                name="country"
-               th:field="*{country}"
-               placeholder="Country">
+               th:field="*{country}" placeholder="Country Name ">
     </div>
     <div class="form-group">
         <div class="form-check">

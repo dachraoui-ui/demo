@@ -9,6 +9,9 @@ import org.newapp.demo3.Repository.ClubRepo;
 import org.newapp.demo3.Repository.PlayerRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,6 +26,7 @@ public class PlayerServiceImpl implements PlayerService{
         player.setClub(club);
         playerRepo.save(player);
     }
+
 
     public Player maptoPlayer(PlayerDto playerDto){
         return Player.builder()
