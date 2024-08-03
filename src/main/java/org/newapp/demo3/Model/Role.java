@@ -1,28 +1,22 @@
 package org.newapp.demo3.Model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Player {
-
+@Entity(name = "roles")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int age;
-    private String Country ;
-    //link the player to a club
-    @ManyToOne
-    @JoinColumn(name = "club_id" , nullable = false)
-    private Club club;
-
+    @ManyToMany(mappedBy = "roles")
+    private List<UserEntity> users = new ArrayList<>();
 }

@@ -19,12 +19,6 @@ import java.util.List;
 @Controller
 public class PlayerController {
     private PlayerService playerService;
-    @GetMapping("/player")
-    public String showPlayer(Model model){
-        List<PlayerDto> players = playerService.findallPlayer();
-        model.addAttribute("players",players);
-        return "player_list";
-    }
     @GetMapping("/player/{clubId}/add")
     public String addPlayer(@PathVariable("clubId") int clubId, Model model){
         Player player = new Player();
