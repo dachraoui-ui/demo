@@ -138,6 +138,9 @@
                         .
                     </div>
                 </div>
+                <div th:if="${param.success}" class="alert alert-success">
+                    you are registered successfully
+                </div>
                 <div class="card mb-6">
                     <div class="input-group mb-3">
                         <form th:action="@{/club/search}" class="d-flex w-100">
