@@ -5,7 +5,7 @@ import org.newapp.demo3.Model.UserEntity;
 
 public interface UserService {
     void saveUser(RegistrationDTO registrationDTO);
-    UserEntity findByEmail(String email);
+    UserEntity FindByEmail(String email);
 
     UserEntity findByUsername(String username);
 }

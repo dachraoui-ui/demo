@@ -15,7 +15,6 @@
 </head>
 <body class="sb-nav-fixed">
 <div th:replace="~{fragments/fragment :: header}"></div>
-<div th:replace="~{fragments/fragment :: SideNav}"></div>
 <form role="form" method="post" th:action="@{/register/save}" th:object="${user}">
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -28,7 +27,7 @@
                     name="username"
                     th:field="*{username}"
                     placeholder="Name">
-            <p th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{username}"></p>
+            <p th:if="${#fields.hasErrors('username')}" class="text-danger" th:errors="*{username}"></p>
         </div>
         <div class="form-group col-md-6">
             <label for="email">Email</label>

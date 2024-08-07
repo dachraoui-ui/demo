@@ -1,8 +1,6 @@
 package org.newapp.demo3.Controller;
 
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.newapp.demo3.DTO.RegistrationDTO;
 import org.newapp.demo3.Model.UserEntity;
 import org.newapp.demo3.Service.UserService;
@@ -13,11 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
+
 @Controller
-@AllArgsConstructor
-@NoArgsConstructor
 public class AuthController {
-    private UserService userService;
+    private final UserService userService;
+    public AuthController(UserService userService){
+        this.userService=userService;
+    }
     @GetMapping("/register")
     public String getRegistrationForm(Model model){
         RegistrationDTO user = new RegistrationDTO();
@@ -28,7 +29,7 @@ public class AuthController {
     public String register(@Valid @ModelAttribute("user") RegistrationDTO user ,
                            BindingResult result , Model model)
     {
-        UserEntity existingUserEmail = userService.findByEmail(user.getEmail());
+        UserEntity existingUserEmail = userService.FindByEmail(user.getEmail());
         if (existingUserEmail != null && existingUserEmail.getEmail()!=null && !existingUserEmail.getEmail().isEmpty()){
             result.rejectValue("email","the username/email is already used");
         }
